@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+      .red { color: red; }
+      .green { color: green; }
+      .redBorder { border-color: red; }
+      .greenBorder { border-color: green; }
+      .noBorder { border-color: #CBCBCB; }
+    </style>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control"
+             ng-class="{redBorder: !message.success, greenBorder: message.success, noBorder: message == undefined}"
+             ng-model="itemList">
+         </div>
+         <div class="form-group">
+           <span class="label label-info"> Note: empty values and leading/trailing spaces between commas are ignored</span>
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default"
+               ng-click="checkLunch()">Check If Too Much</button>
+         </div>
+         <div class="form-group message">
+           <span ng-class="{red: !message.success, green: message.success}">
+             {{message.text}}
+           </span>
+         </div>
+   </div>
+
+</body>
+</html>
