@@ -9,6 +9,11 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
+.list {
+  float: bottom;
+  margin-top: 10px;
+  clear: both;
+}
 .loader {
   display: none;
   margin-left: 5px;
