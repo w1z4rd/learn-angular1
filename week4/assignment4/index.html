@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Restaurant Menu Application </title>
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/main/data/data.module.js"></script>
+    <script src="src/main/menuapp/menuapp.module.js"></script>
+
+    <!-- Routes -->
+    <script src="src/main/routes.js"></script>
+
+    <!-- Componenets -->
+    <script src="src/main/categories/categories.component.js"></script>
+    <script src="src/main/items/items.component.js"></script>
+    <script src="src/main/menuapp/menudata.service.js"></script>
+  </head>
+  <body ng-app="MenuApp">
+    <ui-view></ui-view>
+  </body>
+</html>
