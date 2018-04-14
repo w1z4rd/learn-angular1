@@ -1,6 +1,18 @@
 <!doctype html>
-Categories
-
-<br>
-<a ui-sref="home">Home</a>
-<a ui-sref="categories.items">Items</a>
+<div class="container">
+  <a ui-sref="home">Home</a>
+  <h1> Categories </h1>
+  <div class="row">
+    <div class="col-sm-1"><b>Short</b></div>
+    <div class="col-sm-2"><b>Name</b></div>
+  </div>
+  <div ng-repeat="category in ctrl.categories" class="row">
+    <div class="col-sm-1">
+      <a ui-sref="items({categoryShortName: category.short_name, categoryName: category.name})">
+        ({{category.short_name}})
+      </a>
+    </div>
+    <div class="col-sm-2">{{category.name}}</div>
+  </div>
+</div>
+<ui-view></ui-view>

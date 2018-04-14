@@ -18,7 +18,7 @@
     service.getItemForCategory = function(categoryShortName) {
       return $http({
         method: "GET",
-        url: ApiBasePath + "/menu_items.json?q=" + categoryName
+        url: ApiBasePath + "/menu_items.json?category=" + categoryShortName
       });
     };
   };

@@ -16,7 +16,7 @@
       .state('categories', {
         url: '/categories',
         templateUrl: 'src/main/categories/categories.template.html',
-        controller: 'CategoriesController as categories',
+        controller: 'CategoriesController as ctrl',
         resolve: {
           categories: ['MenuDataService',
                        function(MenuDataService) {
@@ -25,15 +25,24 @@
           ]
         }
       })
-      .state('categories.items', {
-        url: '/{categoryShortName}/items',
+      .state('items', {
+        url: '/categories/{categoryShortName}/items',
         templateUrl: 'src/main/items/items.template.html',
-        controller: 'ItemsController as items',
+        controller: 'ItemsController as ctrl',
         resolve: {
           items: ['$stateParams', 'MenuDataService',
                   function($stateParams, MenuDataService) {
                     return MenuDataService.getItemForCategory($stateParams.categoryShortName);
-                  }]
+                  }
+          ],
+          categoryName: ['$stateParams', 
+                         function($stateParams) {
+                           return $stateParams.categoryName;
+                         }
+          ]
+        },
+        params: {
+          categoryName: null
         }
       });
   };
