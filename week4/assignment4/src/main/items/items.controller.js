@@ -8,7 +8,6 @@
   function ItemsController(items, categoryName) {
     const ctrl = this;
 
-    console.log(categoryName);
     ctrl.items = items.data.menu_items;
     ctrl.categoryName = categoryName;
   };
