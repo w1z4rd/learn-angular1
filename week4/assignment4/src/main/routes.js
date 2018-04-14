@@ -15,11 +15,26 @@
       })
       .state('categories', {
         url: '/categories',
-        templateUrl: 'src/main/categories/categories.template.html'
+        templateUrl: 'src/main/categories/categories.template.html',
+        controller: 'CategoriesController as categories',
+        resolve: {
+          categories: ['MenuDataService',
+                       function(MenuDataService) {
+                         return MenuDataService.getAllCategories();
+                       }
+          ]
+        }
       })
       .state('categories.items', {
-        url: '/{category}/items',
-        templateUrl: 'src/main/items/items.template.html'
+        url: '/{categoryShortName}/items',
+        templateUrl: 'src/main/items/items.template.html',
+        controller: 'ItemsController as items',
+        resolve: {
+          items: ['$stateParams', 'MenuDataService',
+                  function($stateParams, MenuDataService) {
+                    return MenuDataService.getItemForCategory($stateParams.categoryShortName);
+                  }]
+        }
       });
   };
 })();
