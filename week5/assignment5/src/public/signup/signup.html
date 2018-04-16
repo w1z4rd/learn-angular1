@@ -1,13 +1,18 @@
 <div class="container">
   <h1> Sign Up </h1>
-  <form name="signup" novalidate>
+  <form name="regForm" novalidate>
     <div class="row top-buffer">
       <label for="firstName" class="col-sm-2">First Name</label>
       <input type="text" 
              id="firstName" 
              class="col-sm-2"
              required
+             ng-minlength="2"
+             ng-maxlength="20"
              ng-model="signupCtrl.user.firstName">
+    </div>
+    <div class="col-sm-2" ng-messages="regForm.firstName.$touched && regForm.firstName.$error">
+      <div ng-messages-include="error-messages"></div>
     </div>
     <div class="row top-buffer">
       <label for="lastName" class="col-sm-2">Last Name</label>
@@ -15,6 +20,8 @@
              id="lastName" 
              class="col-sm-2"
              required
+             ng-minlength="2"
+             ng-maxlength="20"
              ng-model="signupCtrl.user.lastName">
     </div>
     <div class="row top-buffer">
@@ -31,6 +38,7 @@
              id="phone"
              class="col-sm-2"
              required
+             pattern="(\d{3})-(\d{3})-(\d{4})"
              ng-model="signupCtrl.user.phone">
     </div>
     <div class="row top-buffer">
@@ -38,6 +46,8 @@
       <input type="text"
              id="item"
              class="col-sm-2"
+             required
+             pattern="([A-Z]\d{1,2})"
              ng-model="signupCtrl.user.item">
     </div>
     <div class="row top-buffer">
