@@ -1,3 +1,20 @@
 <div class="container">
-  <h1> Info </h1>
+  <h1> My Info </h1>
+  <div ng-if="infoCtrl.user">
+    <div class="row">
+      {{infoCtrl.user.firstName}}
+    </div>
+    <div class="row">
+      {{infoCtrl.user.lastName}}
+    </div>
+    <div class="row">
+      {{infoCtrl.user.email}}
+    </div>
+    <div class="row">
+      {{infoCtrl.user.phone}}
+    </div>
+    <div class="row">
+      <menu-item menu-item="infoCtrl.user.favMenuItem"></menu-item>
+    </div>
+  </div>
 </div>

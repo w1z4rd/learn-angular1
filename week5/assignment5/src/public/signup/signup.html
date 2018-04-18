@@ -38,7 +38,7 @@
              required
              ng-model="signupCtrl.user.email">
     <div class="col-sm-2" ng-messages="regForm.email.$touched && regForm.email.$error">
-      <div ng-message="email">invalid email address</div>
+      <div ng-message="email">Invalid email address</div>
       <div ng-messages-include="src/common/validation/messages.html"></div>
     </div>
     </div>
@@ -62,10 +62,10 @@
              name="item"
              placeholder="A1"
              class="col-sm-2"
-             required
              pattern="([A-Z,a-z]\d{1,2})"
              ng-model="signupCtrl.user.item">
     <div class="col-sm-2" ng-messages="regForm.item.$touched && regForm.item.$error">
+      <div ng-if="!signupCtrl.success && regForm.item.$touched">No such menu number exists.</div>
       <div ng-message="pattern">Must have the following format: A1 to Z99</div>
       <div ng-messages-include="src/common/validation/messages.html"></div>
     </div>
@@ -73,11 +73,14 @@
     <div class="row top-buffer">
       <div class="col-sm-4">
         <button type="button" 
-                id="submit" 
+                name="submit" 
                 ng-click="signupCtrl.signup()" 
                 ng-disabled="regForm.$invalid"
                 class="btn btn-primary btn-block">Sign Up</button>
       </div>
+    </div>
+    <div class="row top-buffer" ng-if="signupCtrl.success && signupCtrl.show">
+      <div class="col-sm-4">Your information has been saved.</div>
     </div>
   </form>
 </div>
