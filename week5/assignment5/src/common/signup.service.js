@@ -6,8 +6,6 @@
   function SignupService(MenuService) {
     const service = this;
 
-    service.user = {};
-
     service.signup = function (user) {
       const promise = MenuService.getMenuItem(user.item);
 

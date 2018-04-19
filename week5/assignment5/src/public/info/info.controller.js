@@ -2,13 +2,7 @@
   "use strict";
 
   angular.module('public')
-    .component('myInfo', {
-      templateUrl: 'src/public/info/info.html',
-      bindings: {
-        user: '<'
-      },
-      controller: InfoController
-    });
+    .controller('InfoController', InfoController);
 
   InfoController.$inject = ['SignupService'];
   function InfoController(SignupService) {

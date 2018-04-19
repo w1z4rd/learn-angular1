@@ -17,4 +17,7 @@
       <menu-item menu-item="infoCtrl.user.favMenuItem"></menu-item>
     </div>
   </div>
+  <div ng-if="!infoCtrl.user">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up now!</a>
+  </div>
 </div>
