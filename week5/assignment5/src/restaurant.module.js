@@ -1,17 +1,22 @@
 (function() {
-"use strict";
 
-/**
- * Restaurant module that includes the public module as a dependency
- */
-angular.module('restaurant', ['public'])
-.config(config);
+  import angular from 'angular';
+  import $urlRouterProvider from 'angular-ui-router';
+  import public from './public';
 
-config.$inject = ['$urlRouterProvider'];
-function config($urlRouterProvider) {
+  "use strict";
 
-  // If user goes to a path that doesn't exist, redirect to public root
-  $urlRouterProvider.otherwise('/');
-}
+  /**
+   * Restaurant module that includes the public module as a dependency
+   */
+  angular.module('restaurant', ['public'])
+    .config(config);
+
+  config.$inject = ['$urlRouterProvider'];
+  function config($urlRouterProvider) {
+
+    // If user goes to a path that doesn't exist, redirect to public root
+    $urlRouterProvider.otherwise('/');
+  }
 
 })();
